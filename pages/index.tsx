@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Pill } from "../components/common/Pill";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +11,25 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const IndexPage: React.FC = () => {
+  return (
+    <section
+      className="h-[400px] bg-cover bg-center text-white flex flex-col justify-center items-center text-center"
+      style={{ backgroundImage: "url('/your-image-url.jpg')" }}
+    >
+      <h1 className="text-4xl md:text-5xl font-bold">Find your favorite place here!</h1>
+      <p className="text-xl mt-4">The best prices for over 2 million properties worldwide.</p>
+    </section>
+  );
+};
+
+const filters = ["Top Villa", "Self Checkin", "Free Parking"];
+<div className="flex gap-2 flex-wrap p-4">
+  {filters.map((filter) => (
+    <Pill title={filter} key={filter} />
+  ))}
+</div>
 
 export default function Home() {
   return (
